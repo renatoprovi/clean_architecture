@@ -1,6 +1,6 @@
 from pydantic import BaseModel
-from uuid import UUID
 from typing import List
+from uuid import UUID
 
 
 class ListUsersInputDto(BaseModel):
@@ -14,3 +14,6 @@ class UserDto(BaseModel):
 
 class ListUsersOutputDto(BaseModel):
     users: List[UserDto]
+
+# user_dto = UserDto(id=1, name='Renato') # erro (BaseModel vai valiodar)
+# user_dto = UserDto(id=uuid4(), name='Renato') # Não vai dar erro (BaseModel vai validar)
